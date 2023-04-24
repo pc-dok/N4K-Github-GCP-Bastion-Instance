@@ -2,7 +2,7 @@
 variable "project_name" {
   type        = string
   description = "Name of the Google Cloud project"
-  default     = "n4k-project-011"
+  default     = "n4k-project-012"
 }
 
 variable "region" {
