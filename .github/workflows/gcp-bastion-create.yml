@@ -41,3 +41,4 @@ jobs:
     # Apply the plan and push it 1
     - name: Terraform Apply
       run: terraform apply -auto-approve -input=false
+
