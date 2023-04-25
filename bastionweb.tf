@@ -46,6 +46,7 @@ resource "google_compute_instance" "bastion_server" {
     }
   }
 
+  /*
   metadata_startup_script = <<-EOF
     #!/bin/bash
     if [ ! -f /var/tmp/startup-script-executed ]; then
@@ -97,7 +98,7 @@ resource "google_compute_instance" "bastion_server" {
     fi
 
     EOF
-    
+    */
   
   network_interface {
     subnetwork = google_compute_subnetwork.subnet.self_link
