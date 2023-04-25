@@ -17,7 +17,6 @@ variable "GCP_Bastion_PW" {
 
 variable "GCP_Bastion_Admin_PW" {
   type = string
-  sensitive = true
   description = "Local Windows Admin Password"
 }
 
