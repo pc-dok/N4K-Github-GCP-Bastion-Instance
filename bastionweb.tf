@@ -46,7 +46,6 @@ resource "google_compute_instance" "bastion_server" {
     }
   }
 
-  /*
   metadata_startup_script = <<-EOF
     #!/bin/bash
     if [ ! -f /var/tmp/startup-script-executed ]; then
@@ -61,7 +60,7 @@ resource "google_compute_instance" "bastion_server" {
     sudo chmod +x 1-setup.sh
 
     # Modify the script parameters
-    sudo sed -i 's/SERVER_NAME=""/SERVER_NAME="bastion4.n4k.at"/g' 1-setup.sh
+    sudo sed -i 's/SERVER_NAME=""/SERVER_NAME="bastion5.n4k.at"/g' 1-setup.sh
     sudo sed -i 's/LOCAL_DOMAIN=""/LOCAL_DOMAIN="n4k.at"/g' 1-setup.sh
     sudo sed -i 's/INSTALL_MYSQL=""/INSTALL_MYSQL="true"/g' 1-setup.sh
     sudo sed -i 's/SECURE_MYSQL=""/SECURE_MYSQL="true"/g' 1-setup.sh
@@ -75,7 +74,7 @@ resource "google_compute_instance" "bastion_server" {
     sudo sed -i 's/INSTALL_DUO=""/INSTALL_DUO="false"/g' 1-setup.sh
     sudo sed -i 's/INSTALL_LDAP=""/INSTALL_LDAP="false"/g' 1-setup.sh
     sudo sed -i 's/INSTALL_NGINX=""/INSTALL_NGINX="true"/g' 1-setup.sh
-    sudo sed -i 's/PROXY_SITE=""/PROXY_SITE="bastion4.n4k.at"/g' 1-setup.sh
+    sudo sed -i 's/PROXY_SITE=""/PROXY_SITE="bastion5.n4k.at"/g' 1-setup.sh
     sudo sed -i 's/SELF_SIGN=""/SELF_SIGN="false"/g' 1-setup.sh
     sudo sed -i 's/CERT_COUNTRY="AU"/CERT_COUNTRY="LI"/g' 1-setup.sh
     sudo sed -i 's/CERT_STATE="Victoria"/CERT_STATE="LI"/g' 1-setup.sh
@@ -84,7 +83,7 @@ resource "google_compute_instance" "bastion_server" {
     sudo sed -i 's/CERT_OU="I.T."/CERT_OU="IT"/g' 1-setup.sh
     sudo sed -i 's/CERT_DAYS="3650"/CERT_DAYS="3650"/g' 1-setup.sh
     sudo sed -i 's/LETS_ENCRYPT=""/LETS_ENCRYPT="true"/g' 1-setup.sh
-    sudo sed -i 's/LE_DNS_NAME=""/LE_DNS_NAME="bastion4.n4k.at"/g' 1-setup.sh
+    sudo sed -i 's/LE_DNS_NAME=""/LE_DNS_NAME="bastion5.n4k.at"/g' 1-setup.sh
     sudo sed -i 's/LE_EMAIL=""/LE_EMAIL="info@n4k.at"/g' 1-setup.sh
     sudo sed -i 's/BACKUP_EMAIL=""/BACKUP_EMAIL="info@n4k.at"/g' 1-setup.sh
     sudo sed -i 's/EMAIL_DOMAIN=""/EMAIL_DOMAIN="n4k.at"/g' 1-setup.sh
@@ -98,8 +97,7 @@ resource "google_compute_instance" "bastion_server" {
     fi
 
     EOF
-    */
-  
+      
   network_interface {
     subnetwork = google_compute_subnetwork.subnet.self_link
     access_config {
