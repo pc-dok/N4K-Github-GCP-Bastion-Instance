@@ -9,6 +9,12 @@ variable "gcp_credentials" {
   description = "Google Cloud service account credentials"
 }
 
+variable "GCP_Bastion_PW" {
+  type = string
+  sensitive = true
+  description = "Guacamole MySQL Password"
+}
+
 variable "project_name" {
   type        = string
   description = "Name of the Google Cloud project"
