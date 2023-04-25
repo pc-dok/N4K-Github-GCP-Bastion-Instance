@@ -15,6 +15,12 @@ variable "project_name" {
   default     = "n4k-bastion-01"
 }
 
+variable "GCP_PROJECT" {
+  type = string
+  description = "Name of the Google Cloud project"
+  default     = "n4k-bastion-01"
+}
+
 variable "region" {
   type        = string
   description = "Region where resources will be created"
