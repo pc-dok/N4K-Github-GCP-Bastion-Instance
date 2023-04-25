@@ -68,8 +68,8 @@ resource "google_compute_instance" "bastion_server" {
     sudo sed -i 's/MYSQL_PORT=""/MYSQL_PORT=""/g' 1-setup.sh
     sudo sed -i 's/GUAC_DB=""/GUAC_DB=""/g' 1-setup.sh
     sudo sed -i 's/GUAC_USER=""/GUAC_USER=""/g' 1-setup.sh
-    sudo sed -i 's/GUAC_PWD=""/GUAC_PWD="12345678"/g' 1-setup.sh
-    sudo sed -i 's/MYSQL_ROOT_PWD=""/MYSQL_ROOT_PWD="12345678"/g' 1-setup.sh
+    sudo sed -i 's/GUAC_PWD=""/GUAC_PWD="${var.GCP_Bastion_PW}"/g' 1-setup.sh
+    sudo sed -i 's/MYSQL_ROOT_PWD=""/MYSQL_ROOT_PWD="${var.GCP_Bastion_PW}"/g' 1-setup.sh
     sudo sed -i 's/INSTALL_TOTP=""/INSTALL_TOTP="true"/g' 1-setup.sh
     sudo sed -i 's/INSTALL_DUO=""/INSTALL_DUO="false"/g' 1-setup.sh
     sudo sed -i 's/INSTALL_LDAP=""/INSTALL_LDAP="false"/g' 1-setup.sh
