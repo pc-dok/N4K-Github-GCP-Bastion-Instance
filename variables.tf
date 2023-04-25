@@ -1,8 +1,18 @@
 # Define variables
+
+variable "GITHUB_SECRET" {}
+variable "GITHUB_OWNER" {}
+
+variable "gcp_credentials" {
+  type = string
+  sensitive = true
+  description = "Google Cloud service account credentials"
+}
+
 variable "project_name" {
   type        = string
   description = "Name of the Google Cloud project"
-  default     = "n4k-project-012"
+  default     = "n4k-bastion-01"
 }
 
 variable "region" {
@@ -32,4 +42,9 @@ variable "vpc1" {
 variable "cidr-gcp" {
         type    = string
         default = "172.21.2.0/24"
+    }
+
+variable "tf_service_account" {
+        type    = string
+        default = "sa-bastion-instance@n4k-bastion-01.iam.gserviceaccount.com"
     }
