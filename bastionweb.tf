@@ -105,7 +105,7 @@ resource "google_compute_instance" "bastion_server" {
 
 # Create the Windows server on Google Cloud
 resource "google_compute_instance" "windows_server" {
-  count        = 3
+  count        = 1
   name         = "windows-server-${count.index + 1}"
   project      = var.project_name
   machine_type = "n1-standard-2"
