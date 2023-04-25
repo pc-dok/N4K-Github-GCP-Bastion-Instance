@@ -146,6 +146,24 @@ resource "google_compute_instance" "windows_server" {
 
     # Install RSAT Tools with GPM, AD and DNS
     Install-WindowsFeature -Name RSAT-AD-PowerShell, RSAT-AD-AdminCenter, RSAT-ADDS, RSAT-DNS-Server, GPMC
+    
+    # Add local administrator user
+    $adminUser = "${var.admin_name}"
+    $adminPassword = "${var.GCP_Bastion_Admin_PW}" | ConvertTo-SecureString -AsPlainText -Force
+    $adminParams = @{
+        Name = $adminUser
+        Password = $adminPassword
+        PasswordNeverExpires = $true
+        Description = "Local administrator account for Bastion host"
+    }
+    New-LocalUser @adminParams
+
+    # Add user to local Administrators group
+    $groupParams = @{
+        Group = "Administrators"
+        Member = $adminUser
+    }
+    Add-LocalGroupMember @groupParams
 
     # Create flag file
     New-Item $flagFile -ItemType File
