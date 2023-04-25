@@ -36,7 +36,9 @@ resource "google_compute_instance" "bastion_server" {
   machine_type = "n1-standard-2"
   zone         = var.zone
   tags         = ["bastion"]
-  depends_on   = [google_compute_address.bastion_server_public_ip]
+  depends_on   = [
+                    google_compute_address.bastion_server_public_ip,
+                    google_compute_router_nat.nat,]
 
   boot_disk {
     initialize_params {
