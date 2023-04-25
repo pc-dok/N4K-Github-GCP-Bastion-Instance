@@ -46,3 +46,4 @@ sudo ./1-setup.sh
 # create the file to indicate that the script has been executed
 touch /var/tmp/startup-script-executed
 fi
+
