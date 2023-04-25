@@ -1,24 +1,18 @@
 #######################################################################
 # Creates all GCP resources that are defined under each module folder #
 #######################################################################
-#Provider
-provider "google" {
-  project = var.project_name
-  region  = var.region
-}
-
 # Create a Google Cloud project
-resource "google_project" "my_project" {
-  name            = var.project_name
-  project_id      = var.project_name
-  billing_account = var.billingid
-}
+#resource "google_project" "my_project" {
+#  name            = var.project_name
+#  project_id      = var.project_name
+#  billing_account = var.billingid
+#}
 
 # Enable Compute Engine API for the project
 resource "google_project_service" "compute_engine_api" {
   service       = "compute.googleapis.com"
   project       = var.project_name
-  depends_on    = [google_project.my_project]
+  #depends_on    = [google_project.my_project]
 }
 
 #######################################################
