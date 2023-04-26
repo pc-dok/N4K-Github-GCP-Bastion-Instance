@@ -45,8 +45,15 @@ To do on your DNS Provider:
 My variables:
 
 # Define variables
+
 variable "GITHUB_SECRET" {}
 variable "GITHUB_OWNER" {}
+variable "GCP_Bastion_FQDN" {}
+variable "GCP_Bastion_DN" {}
+variable "GCP_Bastion_CERT_Country" {}
+variable "GCP_Bastion_CERT_Location" {}
+variable "GCP_Bastion_CERT_ORG" {}
+variable "GCP_Bastion_Email" {}
 
 variable "gcp_credentials" {
   type = string
