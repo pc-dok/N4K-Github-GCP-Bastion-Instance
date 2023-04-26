@@ -58,5 +58,4 @@ variable "vpc1" {
 variable "cidr-gcp" {
         type    = string
         default = "172.21.2.0/24"
-    }
-
+}
