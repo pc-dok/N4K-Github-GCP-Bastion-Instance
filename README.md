@@ -31,6 +31,10 @@ To do in Github:
 
 - In your repo go to - Settings - new Secret - TF_API_TOKEN - copy the secret from the TF Cloud - User Token. If not already created, then as described above - under settings-developer settings - personal access tokens - tokens - create a new Github API token - for the terraform cloud login - GITHUB_OWNER and GITHUB_SECRET
 
+To do on your DNS Provider:
+
+ - Create a A Record for your Domain what you take in the Guacamole Install Script - so that your Server is later than available over the Web
+
 ```
 My variables:
 
