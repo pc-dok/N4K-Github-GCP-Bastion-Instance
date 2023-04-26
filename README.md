@@ -23,6 +23,12 @@ To do in Terraform Cloud:
   - GCP_PROJECT - is the name of your project - which must already be created - unfortunately
   - GITHUB_OWNER - your Github token name you created under settings-developer settings - personal access tokens - tokens
   - GITHUB_SECRET - here the secret of your Github token
+  - GCP_Bastion_FQDN - my FQDN for the LetsEncrypt Public SSL Certificate
+  - GCP_Bastion_DN - my public Domain
+  - GCP_Bastion_CERT_Country - my Country Code for the LetsEncrypt Public SSL Certificate
+  - GCP_Bastion_CERT_Location - my Location Code for the LetsEncrypt Public SSL Certificate
+  - GCP_Bastion_CERT_ORG - my ORG Code for the LetsEncrypt Public SSL Certificate
+  - GCP_Bastion_Email - my Email for the LetsEncrypt Public SSL Certificate
 - Create a user token under User Settings - Tokens
   (You must click on your Profile Icon on the bottom left)
 - Copy token on a save place for later
