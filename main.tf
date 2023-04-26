@@ -22,7 +22,7 @@ resource "google_compute_network" "vpc" {
 
 resource "google_compute_subnetwork" "subnet" {
   name            = "${var.vpc1}-subnet-01"
-  project         = var.project_name
+  project         = var.GCP_PROJECT
   network         = google_compute_network.vpc.self_link
   ip_cidr_range   = var.cidr-gcp
   region          = var.region
