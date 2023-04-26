@@ -26,22 +26,15 @@ variable "GCP_Bastion_Admin_PW" {
   description = "Local Windows Admin Password"
 }
 
+variable "GCP_PROJECT" {
+  type = string
+  description = "Name of the Google Cloud project"
+}
+
 variable "admin_name" {
   type        = string
   description = "Local Admin User"
   default     = "localadm"
-}
-
-variable "project_name" {
-  type        = string
-  description = "Name of the Google Cloud project"
-  default     = "n4k-bastion-01"
-}
-
-variable "GCP_PROJECT" {
-  type = string
-  description = "Name of the Google Cloud project"
-  default     = "n4k-bastion-01"
 }
 
 variable "region" {
@@ -54,12 +47,6 @@ variable "zone" {
   type        = string
   description = "Name of the GCP zone"
   default     = "europe-west1-b"
-}
-
-variable "billingid" {
-  type        = string
-  description = "Name of your billing ID"
-  default     = "010428-E6DD63-4DB186"
 }
 
 variable "vpc1" {
