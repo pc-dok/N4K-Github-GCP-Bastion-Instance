@@ -16,7 +16,7 @@ terraform {
 }
 
 provider "google" {
-  project     = var.project_name
+  project     = var.GCP_Project
   region      = var.region
   credentials = var.gcp_credentials
 }
