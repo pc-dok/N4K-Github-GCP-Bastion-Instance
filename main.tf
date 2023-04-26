@@ -7,10 +7,12 @@ resource "google_project_service" "enable_cloud_resource_manager_api" {
   project                     = var.GCP_PROJECT
   disable_dependent_services  = true
 }
+
 # Enable Compute Engine API for the project
 resource "google_project_service" "compute_engine_api" {
-  service       = "compute.googleapis.com"
-  project       = var.GCP_PROJECT
+  service                     = "compute.googleapis.com"
+  project                     = var.GCP_PROJECT
+  disable_dependent_services  = true
 }
 
 #######################################################
