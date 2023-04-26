@@ -60,7 +60,3 @@ variable "cidr-gcp" {
         default = "172.21.2.0/24"
     }
 
-variable "tf_service_account" {
-        type    = string
-        default = "sa-bastion-instance@n4k-bastion-01.iam.gserviceaccount.com"
-    }

@@ -3,7 +3,7 @@
 # Creates the Firewall Rule for the SSH Login and also https
 resource "google_compute_firewall" "external" {
   name              = "external"
-  project           = var.project_name
+  project           = var.GCP_PROJECT
   priority          = 1010
   network           = google_compute_network.vpc.self_link
   direction         = "INGRESS"
@@ -24,7 +24,7 @@ resource "google_compute_firewall" "external" {
 # Create a public IP address for the Guacamole Bastion server
 resource "google_compute_address" "bastion_server_public_ip" {
   name          = "bastion-server-public-ip"
-  project       = var.project_name
+  project       = var.GCP_PROJECT
   region        = var.region
   depends_on    = [google_compute_firewall.external]
 }
@@ -32,7 +32,7 @@ resource "google_compute_address" "bastion_server_public_ip" {
 # Create the Guacamole Bastion server on Ubuntu
 resource "google_compute_instance" "bastion_server" {
   name         = "bastion"
-  project      = var.project_name
+  project      = var.GCP_PROJECT
   machine_type = "n1-standard-2"
   zone         = var.zone
   tags         = ["bastion"]
@@ -110,7 +110,7 @@ resource "google_compute_instance" "bastion_server" {
 resource "google_compute_instance" "windows_server" {
   count        = 1
   name         = "windows-server-${count.index + 1}"
-  project      = var.project_name
+  project      = var.GCP_PROJECT
   machine_type = "n1-standard-2"
   zone         = var.zone
   tags         = ["windows"]
