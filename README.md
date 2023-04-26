@@ -88,7 +88,7 @@ This code is used to create resources in the Google Cloud Platform (GCP) using T
 
 ### Github Workflow - Create and Destroy
 
-Create Bastion:
+Create Bastion Environment in GCP:
 
 - This is a GitHub Actions workflow code that automates the deployment of a GCP Bastion server using Terraform. The workflow is triggered when there is a push to the main branch or when a pull request is opened. 
 
@@ -104,3 +104,15 @@ Create Bastion:
   -  "Terraform Plan" step generates an execution plan for Terraform.
   -  "Terraform Apply" step applies the plan and pushes it. The "-auto-approve" and "-input=false" flags are used to automatically approve any changes and disable user input prompts during the apply process.
 
+Destroy Bastion Environment in GCP:
+
+- This is another GitHub workflow code that runs a job called "terraform" to destroy a GCP Bastion server. The workflow is triggered by a push to the "main" branch or a pull request to that branch. 
+
+- Like the previous workflow, it also uses the HashiCorp Terraform tool to provision and destroy infrastructure. It installs the latest version of Terraform CLI and sets up the Terraform Cloud user API token to authenticate the CLI.
+
+- The job includes four steps:
+
+  - Checkout: This step checks out the repository to the GitHub Actions runner.
+  - Setup Terraform: This step installs the latest version of Terraform CLI and sets up the Terraform Cloud user API token to authenticate the CLI.
+  - Terraform Init: This step initializes the Terraform working directory by creating initial files, loading any remote state, and downloading modules.
+  - Terraform Destroy: This step applies the destroy command to delete the infrastructure resources created by the previous workflow that provisions the GCP Bastion server. It uses the "-auto-approve" flag to automatically approve the destruction and "-input=false" to skip any user prompts.
