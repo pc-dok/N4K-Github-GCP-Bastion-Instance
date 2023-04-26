@@ -37,3 +37,5 @@ jobs:
     # Apply the destroy and push it
     - name: Terraform Destroy
       run: terraform destroy -auto-approve -input=false
+
+
