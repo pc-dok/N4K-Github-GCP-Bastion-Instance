@@ -75,3 +75,13 @@ This code is used to create resources in the Google Cloud Platform (GCP) using T
 - Next, the code creates a Cloud NAT (network address translation) to allow all VM instances to have internet access. It first creates a router named `${var.vpc1}-router-01` and assigns it to the previously created VPC. The router is also assigned an autonomous system number (ASN) of 64514. Then it creates a NAT named `${var.vpc1}-router-nat-01`, which is associated with the router and allows all subnetwork IP ranges to be NAT-ed to the internet using the `ALL_SUBNETWORKS_ALL_IP_RANGES` option. 
 
 - These resources are all created using the `google_compute_network`, `google_compute_subnetwork`, `google_compute_router`, and `google_compute_router_nat` resources, with various attributes defined for each resource. The specific values of the attributes are taken from the `var` variables defined elsewhere in the Terraform code.
+
+### bastionweb.tf
+
+- This code is a Terraform configuration file that creates a Guacamole server on Google Cloud Platform (GCP). Guacamole is an open-source software application that provides remote access to desktop environments via a web browser. 
+
+- The code creates a firewall rule that allows traffic on ports 22, 80, 443, and 3389 and also allows ICMP traffic. It creates a public IP address for the Guacamole Bastion server and creates the Guacamole Bastion server on Ubuntu. 
+
+- The server setup script is included in the code as a metadata startup script. The script installs required packages and modifies the script parameters. It then gets the Guacamole server install script and sets the required parameters in it. Finally, it executes the Guacamole server install script.
+
+- The variables used in the code are defined outside the code, in a separate variables file. These variables include the GCP project name, region, zone, and passwords.
