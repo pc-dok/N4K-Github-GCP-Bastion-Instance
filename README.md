@@ -85,3 +85,22 @@ This code is used to create resources in the Google Cloud Platform (GCP) using T
 - The server setup script is included in the code as a metadata startup script. The script installs required packages and modifies the script parameters. It then gets the Guacamole server install script and sets the required parameters in it. Finally, it executes the Guacamole server install script.
 
 - The variables used in the code are defined outside the code, in a separate variables file. These variables include the GCP project name, region, zone, and passwords.
+
+### Github Workflow - Create and Destroy
+
+Create Bastion:
+
+- This is a GitHub Actions workflow code that automates the deployment of a GCP Bastion server using Terraform. The workflow is triggered when there is a push to the main branch or when a pull request is opened. 
+
+- The permissions section specifies that the workflow requires read access to the contents of the repository.
+
+- The workflow has a single job named "terraform" which runs on an Ubuntu latest environment in production. The "defaults" section specifies that the Bash shell should be used regardless of the operating system of the GitHub Actions runner.
+
+- The "steps" section of the job includes the following:
+
+  - 1. "Checkout" step checks out the repository to the GitHub Actions runner.
+  - 2. "Setup Terraform" step installs the latest version of Terraform CLI and configures the Terraform CLI configuration file with a Terraform Cloud user API token.
+  - 3. "Terraform Init" step initializes a new or existing Terraform working directory by creating initial files, loading any remote state, downloading modules, etc.
+  - 4. "Terraform Plan" step generates an execution plan for Terraform.
+-- 5. "Terraform Apply" step applies the plan and pushes it. The "-auto-approve" and "-input=false" flags are used to automatically approve any changes and disable user input prompts during the apply process.
+
