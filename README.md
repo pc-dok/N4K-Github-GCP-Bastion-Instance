@@ -7,6 +7,7 @@ Unfortunately, there is no similar bastion function in the Google Cloud as in Az
 To do in Google Cloud first:
 
 - Create a project
+- Enable Computer API Engine / sometimes also the Cloud Ressource Manager API for your Project
 - Create a service account in IAM - Role:Owner
 - Create a key for this service account (Keys)
 - This key - is a json file - then demined, so all blanks out,can be done here:
