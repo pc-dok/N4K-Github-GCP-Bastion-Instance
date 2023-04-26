@@ -98,9 +98,9 @@ Create Bastion:
 
 - The "steps" section of the job includes the following:
 
-  - 1. "Checkout" step checks out the repository to the GitHub Actions runner.
-  - 2. "Setup Terraform" step installs the latest version of Terraform CLI and configures the Terraform CLI configuration file with a Terraform Cloud user API token.
-  - 3. "Terraform Init" step initializes a new or existing Terraform working directory by creating initial files, loading any remote state, downloading modules, etc.
-  - 4. "Terraform Plan" step generates an execution plan for Terraform.
--- 5. "Terraform Apply" step applies the plan and pushes it. The "-auto-approve" and "-input=false" flags are used to automatically approve any changes and disable user input prompts during the apply process.
+  - "Checkout" step checks out the repository to the GitHub Actions runner.
+  - "Setup Terraform" step installs the latest version of Terraform CLI and configures the Terraform CLI configuration file with a Terraform Cloud user API token.
+  - "Terraform Init" step initializes a new or existing Terraform working directory by creating initial files, loading any remote state, downloading modules, etc.
+  -  "Terraform Plan" step generates an execution plan for Terraform.
+  -  "Terraform Apply" step applies the plan and pushes it. The "-auto-approve" and "-input=false" flags are used to automatically approve any changes and disable user input prompts during the apply process.
 
