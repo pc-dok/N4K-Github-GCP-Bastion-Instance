@@ -1,4 +1,4 @@
-# N4K Github GCP Bastion Instance
+# GCP Bastion Instance
 
 Unfortunately, there is no similar bastion function in the Google Cloud as in Azure. That means RDP or SSH via the web browser. That's why I solved this problem for the GCP with a Guacamole server. The aim is to access internal resources (SSH or RDP) only via the web. For this I create a Guacamole server with an SSL certificate from LetsEncrypt, and a Windows test VM to test the access. I create the whole thing in Github with a workflow, so you have to create some API keys. My runs are stored in the Terraform Cloud, so that you can store all passwords or sensitive data with variables there.
 
