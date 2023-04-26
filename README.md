@@ -56,7 +56,7 @@ variable "GCP_Bastion_Admin_PW" {
 }
 ```
 
-## providers.tf
+### providers.tf
 
 This is a Terraform configuration file in the HCL (HashiCorp Configuration Language) syntax. Here is what the code does:
 
@@ -66,7 +66,7 @@ This is a Terraform configuration file in the HCL (HashiCorp Configuration Langu
 
 Overall, this configuration file sets up Terraform to use the Terraform Cloud backend and two provider plugins for Google Cloud and Github. The providers will be used to create and manage resources in these services.
 
-## main.tf
+### main.tf
 
 This code is used to create resources in the Google Cloud Platform (GCP) using Terraform. 
 
