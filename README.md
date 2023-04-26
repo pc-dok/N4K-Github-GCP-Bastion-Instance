@@ -56,7 +56,7 @@ variable "GCP_Bastion_Admin_PW" {
 }
 ```
 
-providers.tf
+# providers.tf
 
 This is a Terraform configuration file in the HCL (HashiCorp Configuration Language) syntax. Here is what the code does:
 
@@ -65,3 +65,13 @@ This is a Terraform configuration file in the HCL (HashiCorp Configuration Langu
 - provider "github" block: This sets up the Github provider, specifying the Github API token and the owner of the repository.
 
 Overall, this configuration file sets up Terraform to use the Terraform Cloud backend and two provider plugins for Google Cloud and Github. The providers will be used to create and manage resources in these services.
+
+# main.tf
+
+This code is used to create resources in the Google Cloud Platform (GCP) using Terraform. 
+
+- The code first creates a Compute Engine API for the project. Then it creates a virtual private cloud (VPC) and a custom subnet within that VPC. The VPC is named according to the value of the `var.vpc1` variable, while the subnet is named as `${var.vpc1}-subnet-01`. The IP address range for the subnet is set to the value of the `var.cidr-gcp` variable. 
+
+- Next, the code creates a Cloud NAT (network address translation) to allow all VM instances to have internet access. It first creates a router named `${var.vpc1}-router-01` and assigns it to the previously created VPC. The router is also assigned an autonomous system number (ASN) of 64514. Then it creates a NAT named `${var.vpc1}-router-nat-01`, which is associated with the router and allows all subnetwork IP ranges to be NAT-ed to the internet using the `ALL_SUBNETWORKS_ALL_IP_RANGES` option. 
+
+- These resources are all created using the `google_compute_network`, `google_compute_subnetwork`, `google_compute_router`, and `google_compute_router_nat` resources, with various attributes defined for each resource. The specific values of the attributes are taken from the `var` variables defined elsewhere in the Terraform code.
