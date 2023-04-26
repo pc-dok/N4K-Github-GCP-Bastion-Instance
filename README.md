@@ -55,3 +55,13 @@ variable "GCP_Bastion_Admin_PW" {
   description = "Local Windows Admin Password"
 }
 ```
+
+providers.tf
+
+This is a Terraform configuration file in the HCL (HashiCorp Configuration Language) syntax. Here is what the code does:
+
+-terraform block: This specifies the version of Terraform being used, and any required provider plugins. In this case, it sets up the Terraform Cloud backend to store the state and workspace, and specifies the required version of the github provider.
+-provider "google" block: This sets up the Google Cloud provider, specifying the project name, region and service account credentials. The impersonate_service_account option is commented out, but it can be used to specify a service account to impersonate for access control purposes.
+-provider "github" block: This sets up the Github provider, specifying the Github API token and the owner of the repository.
+
+Overall, this configuration file sets up Terraform to use the Terraform Cloud backend and two provider plugins for Google Cloud and Github. The providers will be used to create and manage resources in these services.
