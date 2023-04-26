@@ -25,7 +25,7 @@ resource "google_compute_network" "vpc" {
   project                 = var.GCP_PROJECT
   auto_create_subnetworks = false
   description             = "VPC1 for Servers"
-  depends_on              = [google_project_service.compute_engine_api]
+  #depends_on              = [google_project_service.compute_engine_api]
 }
 
 resource "google_compute_subnetwork" "subnet" {
