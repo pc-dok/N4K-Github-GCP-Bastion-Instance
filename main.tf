@@ -1,7 +1,12 @@
 #######################################################################
 # Creates all GCP resources                                           #
 #######################################################################
-
+# Enable Cloud Ressource Manager API for the project
+resource "google_project_service" "enable_cloud_resource_manager_api" {
+  service                     = "cloudresourcemanager.googleapis.com"
+  project                     = var.GCP_PROJECT
+  disable_dependent_services  = true
+}
 # Enable Compute Engine API for the project
 resource "google_project_service" "compute_engine_api" {
   service       = "compute.googleapis.com"
