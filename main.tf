@@ -5,7 +5,7 @@
 # Enable Compute Engine API for the project
 resource "google_project_service" "compute_engine_api" {
   service       = "compute.googleapis.com"
-  project       = var.project_name
+  project       = var.GCP_PROJECT
 }
 
 #######################################################
@@ -14,7 +14,7 @@ resource "google_project_service" "compute_engine_api" {
 
 resource "google_compute_network" "vpc" {
   name                    = var.vpc1
-  project                 = var.project_name
+  project                 = var.GCP_PROJECT
   auto_create_subnetworks = false
   description             = "VPC1 for Servers"
   depends_on              = [google_project_service.compute_engine_api]
@@ -35,7 +35,7 @@ resource "google_compute_subnetwork" "subnet" {
 
 resource "google_compute_router" "router" {
   name    = "${var.vpc1}-router-01"
-  project = var.project_name
+  project = var.GCP_PROJECT
   region  = google_compute_subnetwork.subnet.region
   network = google_compute_network.vpc.self_link
 
@@ -46,7 +46,7 @@ resource "google_compute_router" "router" {
 
 resource "google_compute_router_nat" "nat" {
   name                               = "${var.vpc1}-router-nat-01"
-  project                            = var.project_name
+  project                            = var.GCP_PROJECT
   router                             = google_compute_router.router.name
   region                             = google_compute_router.router.region
   nat_ip_allocate_option             = "AUTO_ONLY"
