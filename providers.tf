@@ -19,7 +19,6 @@ provider "google" {
   project     = var.project_name
   region      = var.region
   credentials = var.gcp_credentials
-  #impersonate_service_account   = var.tf_service_account
 }
 
 provider "github" {
